@@ -1,24 +1,35 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add("js")</script>
 <meta charset="utf-8">
 <link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="p:domain_verify" content="1afca95e3ce0cfa413ec79b89af1428b"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4E1D7">
 <title>2027 Money Reset Planner — Budget by Paycheck | Penny Reset</title>
 <meta name="description" content="Printable & tablet-friendly 2027 budget planner. Plan every paycheck, pay off debt and see where your money goes. Instant download. Launch price $17.">
 <meta property="og:title" content="2027 Money Reset Planner — Budget by Paycheck">
 <meta property="og:description" content="Plan every paycheck, pay off debt and finally see where your money goes. Instant download.">
-<meta property="og:image" content="assets/hero.jpg">
+<meta property="og:image" content="https://pennyreset.pro/assets/hero.jpg">
+<meta property="og:url" content="https://pennyreset.pro/">
+<meta property="og:type" content="product">
+<link rel="canonical" href="https://pennyreset.pro/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#FBF6EE;--blush:#F4E1D7;--sage:#8FA58A;--sageD:#6F8A6A;--terra:#C9785A;--terraD:#B0603F;--ink:#3B3530;--muted:#7A6F65;--line:#E6DDD1}
+:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--cream:#FBF6EE;--blush:#F4E1D7;--sage:#8FA58A;--sageD:#6F8A6A;--terra:#C9785A;--terraD:#B0603F;--ink:#3B3530;--muted:#7A6F65;--line:#E6DDD1}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;font-size:17px}
+body{margin:0;-webkit-tap-highlight-color:transparent;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;font-size:17px}
 img{max-width:100%;height:auto;display:block}
-h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.12;margin:0 0 .5em}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.12;margin:0 0 .5em;text-wrap:balance}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:200;transition:top 160ms var(--ease-out)}
+.skip:focus{top:12px}
+a,button,summary{touch-action:manipulation}
+:focus-visible{outline:3px solid var(--sageD);outline-offset:3px;border-radius:6px}
+.btn:focus-visible{border-radius:999px}
+#pricing{scroll-margin-top:12px}
 h1{font-size:clamp(34px,6vw,56px)}
 h2{font-size:clamp(28px,4.4vw,40px);text-align:center}
 h3{font-size:21px}
@@ -27,8 +38,9 @@ section{padding:64px 0}
 .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:10px}
 .center{text-align:center}
 .sub{color:var(--muted);max-width:640px;margin:0 auto 32px;text-align:center}
-.btn{display:inline-block;background:var(--terra);color:#fff;text-decoration:none;font-weight:600;padding:17px 30px;border-radius:999px;font-size:18px;box-shadow:0 6px 18px rgba(201,120,90,.35);transition:background .15s,transform .15s}
-.btn:hover{background:var(--terraD);transform:translateY(-1px)}
+.btn{display:inline-block;background:var(--terra);color:#fff;text-decoration:none;font-weight:600;padding:17px 30px;border-radius:999px;font-size:18px;box-shadow:0 6px 18px rgba(201,120,90,.35);transition:background-color 200ms ease,color 200ms ease,transform 160ms var(--ease-out),box-shadow 200ms ease}
+.btn:active{transform:scale(0.97);box-shadow:0 3px 10px rgba(201,120,90,.3)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--terraD)}.final .btn:hover{background:#fff;color:var(--terra)}}
 .btn small{font-weight:500;opacity:.9;margin-left:6px}
 .strike{text-decoration:line-through;opacity:.7}
 .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:14px;color:var(--muted)}
@@ -47,12 +59,17 @@ section{padding:64px 0}
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:980px;margin:0 auto}
 .gallery figure{margin:0;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px}
 .gallery img{border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.gallery a.zoom{display:block;position:relative;cursor:zoom-in}
+.gallery a.zoom{display:block;position:relative;cursor:zoom-in;border-radius:6px;transition:transform 160ms var(--ease-out)}
+.gallery a.zoom:active{transform:scale(0.98)}
+.zh{transition:background-color 200ms ease}
+@media (hover:hover) and (pointer:fine){.gallery a.zoom:hover .zh{background:var(--terra)}}
 .zh{position:absolute;right:8px;bottom:8px;background:rgba(59,53,48,.78);color:#fff;font-size:12px;font-weight:600;padding:4px 9px;border-radius:20px}
-#lb{position:fixed;inset:0;background:rgba(20,18,16,.92);z-index:99;display:none;overflow:auto;-webkit-overflow-scrolling:touch}
-#lb.on{display:block}
-#lb img{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto;background:#fff}
-#lb button{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#3B3530;font-size:24px;line-height:1;cursor:pointer;z-index:100}
+#lb{position:fixed;inset:0;background:rgba(20,18,16,.92);z-index:99;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;opacity:0;visibility:hidden;transition:opacity 150ms ease-out,visibility 0s linear 150ms}
+#lb.on{opacity:1;visibility:visible;transition:opacity 220ms var(--ease-out),visibility 0s}
+#lb img{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto;background:#fff;transform:scale(0.97);transition:transform 150ms ease-out}
+#lb.on img{transform:scale(1);transition:transform 260ms var(--ease-out)}
+#lb button{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#3B3530;font-size:24px;line-height:1;cursor:pointer;z-index:100;transition:transform 160ms var(--ease-out)}
+#lb button:active{transform:scale(0.92)}
 .gallery figcaption{font-size:14px;color:var(--muted);padding:10px 4px 2px}
 .gallery figcaption b{color:var(--ink);display:block;font-size:15px}
 /* steps */
@@ -64,6 +81,7 @@ section{padding:64px 0}
 .row span:last-child{color:var(--muted);white-space:nowrap}
 .row.total{border:0;font-weight:600;padding-top:16px}
 .price{text-align:center;margin:18px 0 20px}
+.price,.row span:last-child{font-variant-numeric:tabular-nums}
 .price .now{font-family:Fraunces,serif;font-size:56px;font-weight:600;color:var(--terra)}
 .price .was{font-size:22px;color:var(--muted);text-decoration:line-through;margin-left:8px}
 .note{font-size:14px;color:var(--muted);text-align:center;margin-top:12px}
@@ -82,12 +100,18 @@ summary::-webkit-details-marker{display:none}
 summary:after{content:"+";float:right;color:var(--terra);font-size:22px;line-height:1}
 details[open] summary:after{content:"–"}
 details p{margin:10px 0 0;color:var(--muted)}
+details[open] p{animation:faqIn 220ms var(--ease-out)}
+@keyframes faqIn{from{opacity:0;transform:translateY(-4px)}}
+/* scroll reveal: only with JS on, so content is never hidden without it */
+.js .rv{opacity:0;transform:translateY(12px);transition:opacity 500ms var(--ease-out),transform 500ms var(--ease-out);transition-delay:calc(var(--i,0) * 60ms)}
+.js .rv.in{opacity:1;transform:none}
 .final{background:var(--sage);color:#fff;text-align:center}
 .final h2{color:#fff}
 .final .btn{background:#fff;color:var(--terraD)}
 footer{padding:32px 0;font-size:14px;color:var(--muted);text-align:center}
 footer a{color:var(--muted)}
-.sticky{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:none;justify-content:space-between;align-items:center;gap:10px;z-index:9}
+.sticky{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;justify-content:space-between;align-items:center;gap:10px;z-index:9;transform:translateY(100%);transition:transform 300ms var(--ease-out);box-shadow:0 -6px 18px rgba(59,53,48,.06)}
+.sticky.show{transform:none}
 .sticky .btn{padding:12px 20px;font-size:16px}
 @media (max-width:820px){
   .hero .grid,.fit{grid-template-columns:1fr}
@@ -98,9 +122,16 @@ footer a{color:var(--muted)}
   body{padding-bottom:70px}
   .guar{flex-direction:column;text-align:center}
 }
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv,.sticky,#lb img,#lb.on img,.btn:active,.gallery a.zoom:active{transform:none!important}
+  .js .rv{transition:opacity 200ms ease;transition-delay:0ms}
+  details[open] p{animation:none}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="hero">
   <div class="wrap">
@@ -113,10 +144,11 @@ footer a{color:var(--muted)}
         <a class="btn buy" href="#pricing">Get the planner — $17 <small class="strike">$27</small></a>
         <div class="trust"><span>Instant download</span><span>Print or use on iPad</span><span>Real human support</span></div>
       </div>
-      <div><img src="assets/hero-tight.jpg" alt="2027 Money Reset Planner pages: cover, yearly calendar and paycheck budget" width="1195" height="850" style="transform:scale(1.08)"></div>
+      <div><img src="assets/hero-tight.jpg" alt="2027 Money Reset Planner pages: cover, yearly calendar and paycheck budget" width="1195" height="850" style="transform:scale(1.08)" fetchpriority="high"></div>
     </div>
   </div>
 </header>
+<main id="main">
 
 <section>
   <div class="wrap">
@@ -124,9 +156,9 @@ footer a{color:var(--muted)}
     <h2>Budgeting by the month doesn't work when you're paid every two weeks</h2>
     <p class="sub">Most budget planners assume one paycheck a month. Real life looks different.</p>
     <div class="pain">
-      <div class="card"><p>“I have no idea where my money actually goes.”</p></div>
-      <div class="card"><p>“Rent, car, phone… and then it's gone before the next check.”</p></div>
-      <div class="card"><p>“Every January I start a budget. By February I quit.”</p></div>
+      <div class="card rv"><p>“I have no idea where my money actually goes.”</p></div>
+      <div class="card rv"><p>“Rent, car, phone… and then it's gone before the next check.”</p></div>
+      <div class="card rv"><p>“Every January I start a budget. By February I quit.”</p></div>
     </div>
   </div>
 </section>
@@ -137,12 +169,12 @@ footer a{color:var(--muted)}
     <h2>A planner built around your paychecks</h2>
     <p class="sub">32 pages, US Letter size. Clean, ink-friendly design. Clickable on tablets: tap a month to jump right to it. Shown here filled in with example numbers.</p>
     <div class="gallery">
-      <figure><a class="zoom" href="assets/full/p-paycheck.jpg"><img src="assets/p-paycheck.jpg" alt="Paycheck budget page" loading="lazy"><span class="zh">🔍 Zoom</span></a><figcaption><b>Paycheck budget × 12</b>Plan up to 4 paychecks a month, planned vs. actual.</figcaption></figure>
-      <figure><a class="zoom" href="assets/full/p-calendar.jpg"><img src="assets/p-calendar.jpg" alt="2027 calendar" loading="lazy"><span class="zh">🔍 Zoom</span></a><figcaption><b>2027 at a glance</b>Sunday-start calendar, every month clickable.</figcaption></figure>
-      <figure><a class="zoom" href="assets/full/p-log.jpg"><img src="assets/p-log.jpg" alt="Spending log" loading="lazy"><span class="zh">🔍 Zoom</span></a><figcaption><b>Spending log × 12</b>See where the small purchases add up.</figcaption></figure>
-      <figure><a class="zoom" href="assets/full/p-bills.jpg"><img src="assets/p-bills.jpg" alt="Bill tracker" loading="lazy"><span class="zh">🔍 Zoom</span></a><figcaption><b>Bill tracker</b>Every due date in one place. No more late fees.</figcaption></figure>
-      <figure><a class="zoom" href="assets/full/p-goals.jpg"><img src="assets/p-goals.jpg" alt="Money goals" loading="lazy"><span class="zh">🔍 Zoom</span></a><figcaption><b>2027 money goals</b>Three goals, with the “why” that keeps you going.</figcaption></figure>
-      <figure><a class="zoom" href="assets/full/p-sinking.jpg"><img src="assets/p-sinking.jpg" alt="Sinking funds" loading="lazy"><span class="zh">🔍 Zoom</span></a><figcaption><b>Sinking funds</b>Save ahead for car repairs, holidays and birthdays.</figcaption></figure>
+      <figure class="rv"><a class="zoom" href="assets/full/p-paycheck.jpg"><img src="assets/p-paycheck.jpg" alt="Paycheck budget page" width="1000" height="800" loading="lazy"><span class="zh"><span aria-hidden="true">🔍 </span>Zoom</span></a><figcaption><b>Paycheck budget × 12</b>Plan up to 4 paychecks a month, planned vs. actual.</figcaption></figure>
+      <figure class="rv"><a class="zoom" href="assets/full/p-calendar.jpg"><img src="assets/p-calendar.jpg" alt="2027 calendar" width="1000" height="800" loading="lazy"><span class="zh"><span aria-hidden="true">🔍 </span>Zoom</span></a><figcaption><b>2027 at a glance</b>Sunday-start calendar, every month clickable.</figcaption></figure>
+      <figure class="rv"><a class="zoom" href="assets/full/p-log.jpg"><img src="assets/p-log.jpg" alt="Spending log" width="1000" height="800" loading="lazy"><span class="zh"><span aria-hidden="true">🔍 </span>Zoom</span></a><figcaption><b>Spending log × 12</b>See where the small purchases add up.</figcaption></figure>
+      <figure class="rv"><a class="zoom" href="assets/full/p-bills.jpg"><img src="assets/p-bills.jpg" alt="Bill tracker" width="1000" height="800" loading="lazy"><span class="zh"><span aria-hidden="true">🔍 </span>Zoom</span></a><figcaption><b>Bill tracker</b>Every due date in one place. No more late fees.</figcaption></figure>
+      <figure class="rv"><a class="zoom" href="assets/full/p-goals.jpg"><img src="assets/p-goals.jpg" alt="Money goals" width="1000" height="800" loading="lazy"><span class="zh"><span aria-hidden="true">🔍 </span>Zoom</span></a><figcaption><b>2027 money goals</b>Three goals, with the “why” that keeps you going.</figcaption></figure>
+      <figure class="rv"><a class="zoom" href="assets/full/p-sinking.jpg"><img src="assets/p-sinking.jpg" alt="Sinking funds" width="1000" height="800" loading="lazy"><span class="zh"><span aria-hidden="true">🔍 </span>Zoom</span></a><figcaption><b>Sinking funds</b>Save ahead for car repairs, holidays and birthdays.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -152,9 +184,9 @@ footer a{color:var(--muted)}
     <div class="kicker center">How it works</div>
     <h2>Three steps. About 15 minutes.</h2>
     <div class="steps" style="margin-top:28px">
-      <div class="card"><div class="n">1</div><h3>Download</h3><p>Get the files right after checkout. Print at home or open in GoodNotes, Notability or any PDF app.</p></div>
-      <div class="card"><div class="n">2</div><h3>Plan your paycheck</h3><p>Write what's coming in and give every dollar a job: bills, food, debt, savings, fun.</p></div>
-      <div class="card"><div class="n">3</div><h3>Know what's left</h3><p>See exactly what you can spend until the next payday. Adjust on each payday in 5 minutes.</p></div>
+      <div class="card rv"><div class="n">1</div><h3>Download</h3><p>Get the files right after checkout. Print at home or open in GoodNotes, Notability or any PDF app.</p></div>
+      <div class="card rv"><div class="n">2</div><h3>Plan your paycheck</h3><p>Write what's coming in and give every dollar a job: bills, food, debt, savings, fun.</p></div>
+      <div class="card rv"><div class="n">3</div><h3>Know what's left</h3><p>See exactly what you can spend until the next payday. Adjust on each payday in 5 minutes.</p></div>
     </div>
   </div>
 </section>
@@ -163,7 +195,7 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <div class="kicker center">Everything you get</div>
     <h2>The 2027 Money Reset Kit</h2>
-    <div class="stack" style="margin-top:28px">
+    <div class="stack rv" style="margin-top:28px">
       <div class="row"><span><b>2027 Money Reset Planner</b> (32 pages)</span><span>$27</span></div>
       <div class="row"><span>🎁 Google Sheets &amp; Excel version — does the math for you</span><span>$15 value</span></div>
       <div class="row"><span>🎁 Video walkthrough: set up your budget in 15 minutes</span><span>$9 value</span></div>
@@ -219,6 +251,8 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap">
     © 2026 Penny Reset · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:technorb02@gmail.com">Contact</a><br>
@@ -226,20 +260,37 @@ footer a{color:var(--muted)}
   </div>
 </footer>
 
-<div class="sticky"><span><b>$17</b> <span class="strike" style="color:var(--muted)">$27</span> · instant download</span><a class="btn buy" href="#pricing">Get it</a></div>
+<div class="sticky" inert><span><b>$17</b> <span class="strike" style="color:var(--muted)">$27</span> · instant download</span><a class="btn buy" href="#pricing">Get it</a></div>
 
 <script>
 // Set the real lava.top checkout link here:
 const CHECKOUT_URL = "https://app.lava.top/products/92787982-3822-45bf-b818-4baed5c32087";
 if (CHECKOUT_URL) document.querySelectorAll("a.buy").forEach(a => { a.href = CHECKOUT_URL; a.rel = "noopener"; });
 </script>
-<div id="lb" role="dialog" aria-label="Page preview"><button aria-label="Close">×</button><img alt=""></div>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Page preview"><button aria-label="Close">×</button><img alt=""></div>
 <script>
-(function(){var lb=document.getElementById("lb"),im=lb.querySelector("img");
-document.querySelectorAll("a.zoom").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();im.src=a.href;im.alt=a.querySelector("img").alt;lb.classList.add("on");lb.scrollTop=0;document.body.style.overflow="hidden";});});
-function c(){lb.classList.remove("on");document.body.style.overflow="";}
+(function(){var lb=document.getElementById("lb"),im=lb.querySelector("img"),btn=lb.querySelector("button"),last=null;
+document.querySelectorAll("a.zoom").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();im.src=a.href;im.alt=a.querySelector("img").alt;last=a;lb.classList.add("on");lb.scrollTop=0;document.body.style.overflow="hidden";btn.focus({preventScroll:true});});});
+function c(){if(!lb.classList.contains("on"))return;lb.classList.remove("on");document.body.style.overflow="";if(last)last.focus({preventScroll:true});}
 lb.querySelector("button").addEventListener("click",c);lb.addEventListener("click",function(e){if(e.target===lb)c();});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")c();});})();
+(function(){
+  var io="IntersectionObserver" in window;
+  // stagger: each card in a row waits 60ms more than the one before it
+  document.querySelectorAll(".pain,.steps,.gallery").forEach(function(g){var cols=g.classList.contains("gallery")?2:3;
+    [].forEach.call(g.querySelectorAll(".rv"),function(el,i){el.style.setProperty("--i",i%cols);});});
+  var els=document.querySelectorAll(".rv");
+  if(!io){els.forEach(function(el){el.classList.add("in")});}
+  else{var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");ro.unobserve(e.target);}});},{rootMargin:"0px 0px -40px 0px"});
+    els.forEach(function(el){ro.observe(el)});}
+  // mobile bar: hidden while the hero, pricing or final button is on screen, so two buttons never compete
+  var bar=document.querySelector(".sticky"),seen=new Set();
+  if(!bar)return;
+  if(!io){bar.classList.add("show");bar.inert=false;return;}
+  var so=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?seen.add(e.target):seen.delete(e.target);});
+    var show=seen.size===0;bar.classList.toggle("show",show);bar.inert=!show;});
+  [".hero","#pricing",".final"].forEach(function(q){var t=document.querySelector(q);if(t)so.observe(t);});
+})();
 </script>
 </body>
 </html>
